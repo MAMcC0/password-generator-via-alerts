@@ -22,51 +22,67 @@ var userPassword = [];
 // Write password to the #password input
 function writePassword() {
   //prompt for how many characters to add
-  var inputCharacters = prompt('How many characters would you like in your password (between 8-128 characters required)', '');
-  var password = generatePassword();
+  var inputCharacters = parseInt(prompt('How many characters would you like in your password (between 8-128 characters required)',''),10);
+  // var password = generatePassword();
   var passwordText = document.querySelector("#password");
-//add parseInt to check if it is a number, then check if its between 8-128, push alerts if not
+  //add parseInt to check if it is a number, then check if its between 8-128, push alerts if not
   passwordText.value = password;
+
+
   function charCheck() {
-     if (inputCharacters < 8 || inputCharacters > 128) {
-      return null;
-    } else if (inputCharacters === '') {
-      alert("You must put a number between 8-128 to continue");
+    if (!inputCharacters) {
+      alert("Oops! Please put a number between 8-128 for your character choice");
+      writePassword();
+  
+    }
+    
+    if (inputCharacters < 8 || inputCharacters > 128) {
+      alert("Oops! Your number is not between 8-128 for your character choice ");
+        writePassword();
+    }
 
+
+
+
+  } charCheck();
+  userQuestions();
+  
+
+  function userQuestions() {
+
+    var specialChars = confirm("Would you like special characters? Ok-Yes Cancel-No");
+    var smallChars = confirm("Would you like lowercase letters? Ok-Yes Cancel-No");
+    var bigChars = confirm("Would you like uppercase letters? Ok-Yes Cancel-No");
+    var inputNums = confirm("Would you like numebers in your password? Ok-Yes Cancel-No");
+
+
+    if (!specialChars && !smallChars && !bigChars && !inputNums) {
+      alert("Please select at least one type of character");
+      return generatePassword();
     };
-  }
-  charCheck(inputCharacters);
-  console.log(inputCharacters);
+    if (specialChars) {
+      userInput.concat(specialCharacters)
+    };
+    if (smallChars) {
+      userInput.concat(lowerAlphabet);
+    };
+    if (bigChars) {
+      userInput.concat(upperAlphabet);
+    };
 
-  var specialChars = confirm("Would you like special characters?");
-  var smallChars= confirm("Would you like lowercase letters?");
-  var bigChars = confirm("Would you like uppercase letters");
-  var inputNums = confirm("Would you like numebers in your password?");
-
-  if (!specialChars && !smallChars && !bigChars && !inputNums){
-    alert("Please select at least one type of character");
-    return generatePassword();
+    if (inputNums) {
+      userInput.concat(numbers);
+    }
   };
-  if (specialChars){
-    userInput.concat(specialCharacters)
-  };
-  if (smallChars){
-    userInput.concat(lowerAlphabet);
-  };
-  if (bigChars){
-    userInput.concat(upperAlphabet);
-  };
+  // create random number 
 
-  if(inputNums){
-    userInput.concat(numbers);
-  }
-// create random number 
+  //loop through userinput arrray based on how many characters they entered into the prompt
 
-//loop through userinput arrray based on how many characters they entered into the prompt
+  // check to make at least one of what they chose makes it into an array?
 
-// push the randomly generated character to an empty array called password array
+  // push the randomly generated character to an empty array called password array
 
-//return password array.join() --> makes it from an array into a string
+  //return password array.join() --> makes it from an array into a string
 
 
 };
