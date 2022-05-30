@@ -17,6 +17,7 @@ var specialCharacters = [
 
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 var userInput = [];
+var userPassword = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -24,7 +25,7 @@ function writePassword() {
   var inputCharacters = prompt('How many characters would you like in your password (between 8-128 characters required)', '');
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+//add parseInt to check if it is a number, then check if its between 8-128, push alerts if not
   passwordText.value = password;
   function charCheck() {
      if (inputCharacters < 8 || inputCharacters > 128) {
@@ -59,6 +60,14 @@ function writePassword() {
   if(inputNums){
     userInput.concat(numbers);
   }
+// create random number 
+
+//loop through userinput arrray based on how many characters they entered into the prompt
+
+// push the randomly generated character to an empty array called password array
+
+//return password array.join() --> makes it from an array into a string
+
 
 };
 
