@@ -44,8 +44,22 @@ function writePassword() {
 
   if (!specialChars && !smallChars && !bigChars && !inputNums){
     alert("Please select at least one type of character");
-    return generatePassword()
+    return generatePassword();
+  };
+  if (specialChars){
+    userInput.concat(specialCharacters)
+  };
+  if (smallChars){
+    userInput.concat(lowerAlphabet);
+  };
+  if (bigChars){
+    userInput.concat(upperAlphabet);
+  };
+
+  if(inputNums){
+    userInput.concat(numbers);
   }
+
 };
 
 
