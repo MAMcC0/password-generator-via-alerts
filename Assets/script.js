@@ -16,16 +16,38 @@ var specialCharacters = [
   '/', '.', '?'];
 
 var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-
+var userInput = [];
 
 // Write password to the #password input
 function writePassword() {
+  //prompt for how many characters to add
+  var inputCharacters = prompt('How many characters would you like in your password (between 8-128 characters required)', '');
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  function charCheck() {
+     if (inputCharacters < 8 || inputCharacters > 128) {
+      return null;
+    } else if (inputCharacters === '') {
+      alert("You must put a number between 8-128 to continue");
 
-}
+    };
+  }
+  charCheck(inputCharacters);
+  console.log(inputCharacters);
+
+  var specialChars = confirm("Would you like special characters?");
+  var smallChars= confirm("Would you like lowercase letters?");
+  var bigChars = confirm("Would you like uppercase letters");
+  var inputNums = confirm("Would you like numebers in your password?");
+
+  if (!specialChars && !smallChars && !bigChars && !inputNums){
+    alert("Please select at least one type of character");
+    return generatePassword()
+  }
+};
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
