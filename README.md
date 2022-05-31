@@ -13,4 +13,6 @@ Live Link: https://mamcc0.github.io/password-generator-via-alerts/
 ## Technologies Used:
 HTML, CSS, and JavaScript
 
-##
+## Image of Working Site
+
+![image of working password site](./Assets/working-pic.png)
