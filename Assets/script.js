@@ -24,10 +24,10 @@ function writePassword() {
   //prompt for how many characters to add
   var inputCharacters = parseInt(prompt('How many characters would you like in your password (between 8-128 characters required)',''),10);
   
-  var passwordText = document.querySelector("#password");
+  
   
  
-
+//function to check that the characters are a number and between 8-128
 console.log(passwordText);
   function charCheck() {
     if (!inputCharacters) {
@@ -47,7 +47,7 @@ console.log(passwordText);
   } charCheck();
   userQuestions();
   
-
+// Function to ask what parameters the user wants in their password
   function userQuestions() {
 
     var specialChars = confirm("Would you like special characters? Ok-Yes Cancel-No");
@@ -55,11 +55,13 @@ console.log(passwordText);
     var bigChars = confirm("Would you like uppercase letters? Ok-Yes Cancel-No");
     var inputNums = confirm("Would you like numbers in your password? Ok-Yes Cancel-No");
 
-
+// To validate that something is selected
     if (!specialChars && !smallChars && !bigChars && !inputNums) {
       alert("Please select at least one type of character");
       return generatePassword();
     };
+
+    // putting the selections into an empty array userInput that will be used to randomly select from
     if (specialChars) {
       userInput = userInput.concat(specialCharacters)
     };
@@ -76,17 +78,21 @@ console.log(passwordText);
     console.log(userInput);
   };
   
-
+  //loop that uses the inputCharacters from the first function
+  // as the limits for its loop and while running generates a random number from the
+  // userInput array 
 for (var i = 0; i < inputCharacters; i++){
+
+
   userPassword = userPassword.concat(userInput[Math.floor(Math.random() * userInput.length)]);
 }
 
 console.log(userPassword);
-
+// changes the array of randomly selected characters from array to string
 var passwordDisplay = userPassword.join('');
-
+// access HTMl to display generated password on webpage
 console.log(passwordDisplay);
- 
+var passwordText = document.querySelector("#password");
 passwordText.value = passwordDisplay;
 
 };
