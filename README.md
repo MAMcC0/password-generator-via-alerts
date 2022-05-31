@@ -8,7 +8,7 @@ By using Javascript, arrays can be generated and randomly selected from to fit t
 ## Links
 
 Github link : https://github.com/MAMcC0/password-generator-via-alerts
-Live Link:
+Live Link: https://mamcc0.github.io/password-generator-via-alerts/
 
 ## Technologies Used:
 HTML, CSS, and JavaScript
