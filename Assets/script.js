@@ -61,21 +61,31 @@ function writePassword() {
       return generatePassword();
     };
     if (specialChars) {
-      userInput.concat(specialCharacters)
+      userInput = userInput.concat(specialCharacters)
     };
     if (smallChars) {
-      userInput.concat(lowerAlphabet);
+      userInput = userInput.concat(lowerAlphabet);
     };
     if (bigChars) {
-      userInput.concat(upperAlphabet);
+      userInput = userInput.concat(upperAlphabet);
     };
 
     if (inputNums) {
-      userInput.concat(numbers);
+      userInput = userInput.concat(numbers);
     }
+    console.log(userInput);
   };
-  // create random number 
+  
 
+for (var i = 0; i < inputCharacters; i++){
+  userPassword = userPassword.concat(userInput[Math.floor(Math.random() * userInput.length)]);
+}
+
+console.log(userPassword);
+
+var password = userPassword.join('');
+
+console.log(password);
   //loop through userinput arrray based on how many characters they entered into the prompt
 
   // check to make at least one of what they chose makes it into an array?
